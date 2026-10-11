@@ -117,3 +117,20 @@
     visibility: hidden;
   }
 }
+
+
+/* SQL provenance: green = developer template, blue = user input. */
+.md-content--post .md-typeset code,
+.md-content--post .md-typeset code span { font-weight: 700; }
+.md-content--post .md-typeset .sql-fixed { color: #146c36 !important; font-weight: 700; }
+.md-content--post .md-typeset .sql-input { color: #174ea6 !important; font-weight: 700; }
+[data-md-color-scheme="slate"] .md-content--post .md-typeset .sql-fixed { color: #79db9c !important; }
+[data-md-color-scheme="slate"] .md-content--post .md-typeset .sql-input { color: #8ab4ff !important; }
+.md-content--post .md-typeset .sql-origin pre > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: .25rem;
+}
