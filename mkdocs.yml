@@ -1,0 +1,52 @@
+site_name: 알쏭달쏭 디지털세계
+site_description: 공부하면서 배운 것을 기록합니다
+site_url: https://ahahit.github.io/
+
+theme:
+  name: material
+  language: ko
+  icon:
+    logo: material/home
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: 어두운 화면으로 전환
+    - scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/toggle-switch
+        name: 밝은 화면으로 전환
+
+nav:
+  - 전체글: index.md
+  - 소개: about.md
+
+plugins:
+  - search
+  - blog:
+      blog_dir: .
+      post_date_format: long
+      post_readtime: true
+      archive: false
+      categories: true
+      categories_name: 카테고리
+      pagination_per_page: 10
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
