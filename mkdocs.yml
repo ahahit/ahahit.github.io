@@ -4,6 +4,7 @@ site_url: https://ahahit.github.io/
 
 theme:
   name: material
+  custom_dir: overrides
   language: ko
   icon:
     logo: material/home
@@ -54,3 +55,9 @@ markdown_extensions:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/article.css?v=4ec0ad4
+
+extra:
+  giscus:
+    repo_id: R_kgDOVEXQ-Q
+    category: Q&A
+    category_id: DIC_kwDOVEXQ-c4DHkCW
