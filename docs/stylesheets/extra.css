@@ -100,3 +100,58 @@ textarea {
 .md-post--excerpt .md-post__action {
   display: none;
 }
+
+/* 썸네일이 있는 카드만 좌우로 배치 */
+.md-post--excerpt .md-post__content:has(.post-thumbnail) {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  align-items: start;
+}
+
+/* 왼쪽 이미지 */
+.md-post--excerpt .md-post__content > p:has(.post-thumbnail) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  margin: 0;
+}
+
+.md-post--excerpt .post-thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* 오른쪽 제목 */
+.md-post--excerpt .md-post__content:has(.post-thumbnail) > h2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 오른쪽 요약: 최대 두 줄 */
+.md-post--excerpt .md-post__content:has(.post-thumbnail)
+  > p:not(:has(.post-thumbnail)) {
+  grid-column: 2;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 작은 화면에서는 위아래로 배치 */
+@media screen and (max-width: 600px) {
+  .md-post--excerpt .md-post__content:has(.post-thumbnail) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .md-post--excerpt .md-post__content > p:has(.post-thumbnail) {
+    order: -1;
+    width: 100%;
+  }
+}
