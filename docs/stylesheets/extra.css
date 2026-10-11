@@ -155,3 +155,34 @@ textarea {
     width: 100%;
   }
 }
+
+/* 글 목록 화면의 빈 목차 영역 제거 */
+.md-main__inner:has(.md-post--excerpt) > .md-sidebar--secondary {
+  display: none;
+}
+
+/* 글 목록이 사용 가능한 가로 공간을 채우도록 */
+.md-content:has(.md-post--excerpt) {
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+.md-content:has(.md-post--excerpt) > .md-content__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.35rem;
+}
+
+/* 원본처럼 목록 위 '전체글' 제목 숨기기 */
+.md-content:has(.md-post--excerpt)
+  > .md-content__inner > header {
+  display: none;
+}
+
+/* 카드 사이 간격은 위의 gap으로 통일 */
+.md-post--excerpt {
+  min-width: 0;
+  margin-bottom: 0;
+}
