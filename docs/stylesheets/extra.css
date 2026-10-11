@@ -63,3 +63,40 @@ textarea {
   font-size: var(--blog-meta-size);
   line-height: 1.3;
 }
+
+/* 검은색 상단 메뉴 */
+.md-header,
+.md-tabs {
+  background-color: #121418;
+  color: #fff;
+}
+
+/* 글 목록 카드 */
+.md-post--excerpt {
+  padding: 1rem 1rem 1.1rem;
+  margin-bottom: 1.4rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  background: var(--md-default-bg-color);
+}
+
+.md-post--excerpt .md-post__header {
+  margin-bottom: 0.75rem;
+}
+
+.md-post--excerpt .md-post__content h2 {
+  margin: 0 0 0.65rem;
+}
+
+.md-post--excerpt .md-post__content h2 a {
+  color: var(--md-default-fg-color);
+}
+
+.md-post--excerpt .md-post__content p {
+  color: var(--md-default-fg-color--light);
+}
+
+/* 제목을 눌러 글을 읽도록 구성 */
+.md-post--excerpt .md-post__action {
+  display: none;
+}
