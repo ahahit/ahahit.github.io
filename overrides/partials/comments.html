@@ -1,0 +1,43 @@
+{% if page.file.src_uri.startswith("posts/") and page.meta.comments is not sameas false and config.extra.giscus %}
+<section class="post-comments" aria-label="댓글" id="__comments">
+  <hr>
+  <div class="giscus"></div>
+  <noscript><p>댓글을 보려면 JavaScript를 켜거나 <a href="https://github.com/ahahit/ahahit.github.io/discussions">GitHub Discussions</a>를 방문해주세요.</p></noscript>
+</section>
+<script>
+(() => {
+  const section = document.querySelector('.post-comments');
+  if (!section || section.dataset.initialized) return;
+  section.dataset.initialized = 'true';
+  const theme = () => document.body.dataset.mdColorScheme === 'slate' ? 'dark' : 'light';
+  const script = document.createElement('script');
+  const settings = {
+    repo: 'ahahit/ahahit.github.io',
+    'repo-id': {{ config.extra.giscus.repo_id | tojson }},
+    category: {{ config.extra.giscus.category | tojson }},
+    'category-id': {{ config.extra.giscus.category_id | tojson }},
+    mapping: 'pathname',
+    strict: '0',
+    'reactions-enabled': '0',
+    'emit-metadata': '0',
+    'input-position': 'bottom',
+    theme: theme(),
+    lang: 'ko'
+  };
+  for (const [key, value] of Object.entries(settings)) script.setAttribute('data-' + key, value);
+  script.src = 'https://giscus.app/client.js';
+  script.async = true;
+  script.crossOrigin = 'anonymous';
+  script.onerror = () => {
+    const p = document.createElement('p');
+    p.textContent = '댓글을 불러오지 못했어요. 페이지를 새로고침하거나 GitHub Discussions에서 확인해주세요.';
+    section.appendChild(p);
+  };
+  section.appendChild(script);
+  new MutationObserver(() => {
+    const frame = section.querySelector('iframe.giscus-frame');
+    if (frame && frame.contentWindow) frame.contentWindow.postMessage({giscus: {setConfig: {theme: theme()}}}, 'https://giscus.app');
+  }).observe(document.body, {attributes: true, attributeFilter: ['data-md-color-scheme']});
+})();
+</script>
+{% endif %}
