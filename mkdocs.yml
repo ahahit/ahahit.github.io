@@ -50,7 +50,7 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
-      
+
 extra_css:
   - stylesheets/extra.css
-  - stylesheets/article.css
+  - stylesheets/article.css?v=4ec0ad4
