@@ -1,0 +1,119 @@
+/* ahahit: reference-aligned article styles, loaded AFTER extra.css.
+   Material for MkDocs 9.7.6 provides tables, callout icons, code highlighting,
+   navigation and responsive behavior. This file scopes changes to posts.
+   Measurements use the theme's standard 20px root at normal desktop width. */
+.md-content--post > article.md-typeset {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+    "Malgun Gothic", sans-serif;
+  font-size: .8rem;
+  line-height: 1.6;
+  color: var(--md-default-fg-color);
+  min-width: 0;
+}
+.md-content--post > article.md-typeset h1 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  font-weight: 700;
+  margin: 0 0 .4rem;
+  color: var(--md-default-fg-color);
+}
+.md-content--post > article.md-typeset h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+  margin: 2rem 0 .8rem;
+  color: var(--md-default-fg-color);
+}
+.md-content--post > article.md-typeset h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 1.6rem 0 .8rem;
+  color: var(--md-default-fg-color);
+}
+.md-content--post > article.md-typeset > p {
+  margin: .8rem 0;
+}
+.md-content--post > article.md-typeset strong { font-weight: 700; }
+.md-content--post > article.md-typeset > :is(ul, ol) {
+  margin-top: .8rem;
+  margin-bottom: .8rem;
+}
+/* Match the reference's small, compact table and callout typography. */
+.md-content--post .md-typeset table:not([class]) {
+  font-size: .64rem;
+  line-height: 1.6;
+}
+.md-content--post .md-typeset table:not([class]) :is(th, td) {
+  padding: .6rem .8rem;
+}
+.md-content--post .md-typeset :is(.admonition, details) {
+  font-size: .64rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  border-radius: .2rem;
+}
+.md-content--post .md-typeset :is(.admonition, details) p {
+  font-size: inherit;
+  line-height: inherit;
+}
+.md-content--post .md-typeset code {
+  font-family: "Roboto Mono", SFMono-Regular, Consolas, Menlo, monospace;
+  font-size: .85em;
+}
+.md-content--post .md-typeset pre > code {
+  line-height: 1.4;
+}
+/* Subtle text links; preserve theme controls and title links. */
+.md-content--post .md-typeset :is(p, li) > a:not(.post-meta-category) {
+  color: var(--md-default-fg-color);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+.md-content--post .md-typeset :is(p, li) > a:hover {
+  text-decoration: underline;
+}
+/* Metadata included below the excerpt break in the post template. */
+.post-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+  margin: .65rem 0 0;
+}
+.post-meta-date {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--md-default-fg-color--light);
+}
+.post-meta-category {
+  display: inline-flex;
+  align-items: center;
+  font-size: .78rem;
+  font-weight: 600;
+  padding: .2rem .55rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+  color: var(--md-default-fg-color) !important;
+  background: rgba(127, 127, 127, .06);
+}
+/* Thumbnail and list summary are replaced by the article cover and summary. */
+.md-content--post > article > p:has(> .post-thumbnail),
+.md-content--post > article > .list-summary {
+  display: none;
+}
+.md-content--post .article-cover {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+/* The reference conceals desktop side-panel contents, keeping their gutters.
+   Mobile drawer remains usable. Delete this rule to keep desktop TOC visible. */
+@media screen and (min-width: 76.25em) {
+  .md-main__inner:has(.md-content--post) > .md-sidebar .md-sidebar__scrollwrap,
+  .md-content--post > .md-sidebar--post .md-sidebar__scrollwrap {
+    visibility: hidden;
+  }
+}
