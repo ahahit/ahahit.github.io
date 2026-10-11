@@ -1,0 +1,65 @@
+/* 사이트 전체 글꼴과 크기 기준 */
+:root {
+  --md-text-font: "Roboto";
+  --md-code-font: "Roboto Mono";
+
+  --blog-body-size: 0.8rem;
+  --blog-title-size: 1.08rem;
+  --blog-summary-size: 0.9rem;
+  --blog-meta-size: 0.74rem;
+}
+
+body,
+input,
+button,
+select,
+textarea {
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont,
+    Helvetica, Arial, "Malgun Gothic", sans-serif;
+}
+
+/* 글 본문 */
+.md-typeset {
+  font-size: var(--blog-body-size);
+  line-height: 1.6;
+}
+
+.md-typeset h1 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.md-typeset h2 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* 목록의 글 제목 */
+.md-post--excerpt .md-post__content h2 {
+  font-size: var(--blog-title-size);
+  line-height: 1.4;
+}
+
+.md-post--excerpt .md-post__content h2 a {
+  font-weight: 600;
+}
+
+/* 목록의 요약 */
+.md-post--excerpt .md-post__content p {
+  font-size: var(--blog-summary-size);
+  line-height: 1.6;
+}
+
+/* 날짜·카테고리·읽는 시간 */
+.md-post--excerpt .md-meta__list {
+  font-size: var(--blog-meta-size);
+  line-height: 1.3;
+}
